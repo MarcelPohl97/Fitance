@@ -1,7 +1,6 @@
 import React from 'react';
 import LayoutContainer from '../components/LayoutContainer';
 import Navigation from '../components/Navigation';
-import Home from '../assets/images/home.jpg'
 import Lottie from 'react-lottie';
 import Girl from '../assets/animations/girlrunning.json';
 import Men from '../assets/animations/menrunning.json';

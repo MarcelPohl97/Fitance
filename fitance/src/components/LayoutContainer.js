@@ -48,7 +48,7 @@ const LayoutContainer = ({children}) => {
                                 }
                             }
                         }} />
-                    </div>
+                </div>
                 <div className="container mx-auto relative">
                     {children}
                 </div>
