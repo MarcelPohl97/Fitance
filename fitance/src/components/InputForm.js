@@ -1,20 +1,26 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import { useFormik } from 'formik';
 import Button from '../components/Button';
 import TextField from '@material-ui/core/TextField';
+import { useSelector, useDispatch } from 'react-redux'
+import {
+  SetFormValues,
+  selectFormValues,
+} from '../redux/features/vitals/vitalSlice';
 
 const InputForm = () => {
+  const dispatch = useDispatch();
+  const test = useSelector(selectFormValues);
   const formik = useFormik({
     initialValues: {
       age: '',
       height: '',
     },
     onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 2));
+      dispatch(SetFormValues(values))
     },
   });
-
   return (
     <div>
       <form onSubmit={formik.handleSubmit}>
@@ -36,6 +42,7 @@ const InputForm = () => {
             value={formik.values.height}
             onChange={formik.handleChange} 
         />
+        {test}
         <Button primary={true} title={'Submit your Data'} type={'submit'} />
       </form>
     </div>

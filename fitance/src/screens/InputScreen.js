@@ -10,11 +10,19 @@ import {
     Link
   } from "react-router-dom";
 import Map from '../components/Map';
-
 import InputForm from '../components/InputForm';
+import Distance from '../components/Distance';
+import { useSelector, useDispatch } from 'react-redux'
+import {
+    setInputStatus, 
+    setCompleteCalculationData,
+    selectInputUI
+} from '../redux/features/inputUI/inputUISlice';
 
 const InputScreen = () => {
-    const [status, setStatus] = useState(true);
+    const inputUI = useSelector(selectInputUI);
+    const dispatch = useDispatch()
+    const [test, setTest] = useState(false)
     return (
         <>
             <LayoutContainer>
@@ -23,12 +31,19 @@ const InputScreen = () => {
                     <ScreenTitle title={'Your Body Level'} />
                     <ScreenCaption caption1={'Input your'} highlight1={'Data'} caption2={'and calculate your'} highlight2={'Goal'} />
                     <ActionContainer>
-                        {status ?  <Map /> : <InputForm />}
+                        {test ?  <Map /> : <InputForm />}
                     </ActionContainer>
-                    <div className="flex flex-row">
+                    {test ? 
+                        <div className="shadow-xl rounded-lg bg-white mt-10" style={{border:'2px solid #F06C88',}}>
+                            <Distance distance={'12km'}/>
+                            <Button primary={true} title={'Start Simulation'} />
+                        </div> 
+                    : ''}
+                    <div className="flex flex-row items-center space-x-4">
                         <Link to="/">
-                            <Button primary={true} title={'Back to Landing'} />
+                                <Button primary={true} title={'Back to Landing'} />
                         </Link>
+                        {test ? <Button primary={true} title={'Back to Form'}/> : ''}
                     </div>
                 </div>
             </LayoutContainer>
