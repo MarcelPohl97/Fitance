@@ -4,11 +4,11 @@ export const InputUISlice = createSlice({
   name: 'inputui',
   initialState: {
       completeCalculationData:false,
-      inputStatus:0,
+      inputStatus:false,
     },
   reducers: {
     setInputStatus: state => {
-        state.completeCalculationData = !state.completeCalculationData 
+        state.inputStatus = !state.inputStatus 
     },
     setCompleteCalculationData: state => {
         state.completeCalculationData = !state.completeCalculationData
@@ -18,6 +18,6 @@ export const InputUISlice = createSlice({
 
 export const { setInputStatus, setCompleteCalculationData } = InputUISlice.actions
 
-export const selectInputUI = state => state.inputui;
+export const selectInputUI = state => state.inputui.inputStatus;
 
 export default InputUISlice.reducer

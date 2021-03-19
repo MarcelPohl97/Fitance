@@ -42,7 +42,7 @@ const InputForm = () => {
             value={formik.values.height}
             onChange={formik.handleChange} 
         />
-        {test}
+        {test ? 'Its true!!!' : 'Its not true!!!'}
         <Button primary={true} title={'Submit your Data'} type={'submit'} />
       </form>
     </div>

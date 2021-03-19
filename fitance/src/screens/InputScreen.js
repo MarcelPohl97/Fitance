@@ -31,9 +31,9 @@ const InputScreen = () => {
                     <ScreenTitle title={'Your Body Level'} />
                     <ScreenCaption caption1={'Input your'} highlight1={'Data'} caption2={'and calculate your'} highlight2={'Goal'} />
                     <ActionContainer>
-                        {test ?  <Map /> : <InputForm />}
+                        {inputUI ?  <Map /> : <InputForm />}
                     </ActionContainer>
-                    {test ? 
+                    {inputUI ? 
                         <div className="shadow-xl rounded-lg bg-white mt-10" style={{border:'2px solid #F06C88',}}>
                             <Distance distance={'12km'}/>
                             <Button primary={true} title={'Start Simulation'} />
@@ -43,7 +43,7 @@ const InputScreen = () => {
                         <Link to="/">
                                 <Button primary={true} title={'Back to Landing'} />
                         </Link>
-                        {test ? <Button primary={true} title={'Back to Form'}/> : ''}
+                        {inputUI ? <Button primary={true} title={'Back to Form'}/> : ''}
                     </div>
                 </div>
             </LayoutContainer>

@@ -5,7 +5,6 @@ export const vitalSlice = createSlice({
   initialState: {
     age: 0,
     height:0,
-    test:false
     },
   reducers: {
     SetFormValues: (state, action) => {
@@ -17,6 +16,6 @@ export const vitalSlice = createSlice({
 
 export const { SetFormValues } = vitalSlice.actions
 
-export const selectFormValues = state => state.vital.test
+export const selectFormValues = state => state.vital
 
 export default vitalSlice.reducer
