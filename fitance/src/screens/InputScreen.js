@@ -13,16 +13,14 @@ import Map from '../components/Map';
 import InputForm from '../components/InputForm';
 import Distance from '../components/Distance';
 import { useSelector, useDispatch } from 'react-redux'
+
 import {
-    setInputStatus, 
-    setCompleteCalculationData,
-    selectInputUI
+    selectInputUIValues,
 } from '../redux/features/inputUI/inputUISlice';
 
 const InputScreen = () => {
-    const inputUI = useSelector(selectInputUI);
-    const dispatch = useDispatch()
-    const [test, setTest] = useState(false)
+    const inputUI = useSelector(selectInputUIValues);
+    console.log(inputUI);
     return (
         <>
             <LayoutContainer>
