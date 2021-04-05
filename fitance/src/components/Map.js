@@ -35,8 +35,8 @@ const Map = () => {
     })
     return (
         <>
-            <div className="w-full h-full">
-              {yourCoords && <MapContainer center={[yourCoords.lat, yourCoords.lng]} zoom={13} className="w-full h-96" scrollWheelZoom={true}>
+            <div className="w-full h-full relative">
+              {yourCoords && <MapContainer center={[yourCoords.lat, yourCoords.lng]} zoom={13} className="w-full h-96 z-20" scrollWheelZoom={true}>
                     <TileLayer
                         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

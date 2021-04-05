@@ -15,11 +15,6 @@ const Branding = () => {
     return (
         <>
         <div className="flex flex-row">
-            <Lottie 
-                options={defaultOptions}
-                height={200}
-                width={100}
-                />
             <Link to="/">
                 <div className="flex flex-row items-center border-2 border-white p-2 rounded-md shadow-lg -ml-1">
                     <div className="p-2 rounded-md bg-white">

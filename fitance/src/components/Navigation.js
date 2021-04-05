@@ -7,18 +7,12 @@ const Navigation = () => {
     const navigation_Items = [
         {
             id:1,
-            routing:'/support',
-            name:'Support',
-            icon:'Support',
-        },
-        {
-            id:2,
             routing:'/how',
             name:'How it works',
             icon:'Guide',
         },
         {
-            id:3,
+            id:2,
             routing:'/about',
             name:'About',
             icon:'Info',

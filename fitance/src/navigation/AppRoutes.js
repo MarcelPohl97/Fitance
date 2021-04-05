@@ -1,6 +1,5 @@
 import React from 'react';
 import HomeScreen from '../screens/HomeScreen';
-import SupportScreen from '../screens/SupportScreen';
 import HowScreen from '../screens/HowScreen';
 import AboutScreen from '../screens/AboutScreen';
 import InputScreen from '../screens/InputScreen';
@@ -17,9 +16,6 @@ const AppRoutes = () => {
         <>
         <Route exact path="/">
             <HomeScreen /> 
-        </Route>
-        <Route exact path="/support">
-            <SupportScreen /> 
         </Route>
         <Route exact path="/how">
             <HowScreen /> 

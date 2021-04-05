@@ -1,10 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit'
 import vitalReducer from '../features/vitals/vitalSlice';
-import inputUIReducer from '../features/inputUI/inputUISlice';
+import uiReducer from '../features/ui/uiSlice';
 
 export default configureStore({
   reducer: {
     vital: vitalReducer,
-    inputUI: inputUIReducer,
+    ui:uiReducer,
   }
 })

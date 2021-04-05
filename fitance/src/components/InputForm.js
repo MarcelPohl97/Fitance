@@ -1,22 +1,26 @@
 import React, { useEffect } from 'react';
-import ReactDOM from 'react-dom';
 import { useFormik } from 'formik';
 import Button from '../components/Button';
 import TextField from '@material-ui/core/TextField';
 import { useSelector, useDispatch } from 'react-redux'
 import {
-  SetFormValues,
+  SetFormValues, selectFormValues
 } from '../redux/features/vitals/vitalSlice';
+import {
+  toggleInputUI
+} from '../redux/features/ui/uiSlice';
 
 const InputForm = () => {
   const dispatch = useDispatch();
+  const formValues = useSelector(selectFormValues)
   const formik = useFormik({
     initialValues: {
-      age: '',
-      height: '',
+      age: formValues.age,
+      height: formValues.height,
     },
     onSubmit: (values) => {
       dispatch(SetFormValues(values))
+      dispatch(toggleInputUI())
     },
   });
   return (

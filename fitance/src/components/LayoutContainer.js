@@ -13,7 +13,6 @@ const LayoutContainer = ({children}) => {
                         <Particles
                         width={width}
                         height={height}
-                                    
                         params={{
                             "particles": {
                                 "number": {

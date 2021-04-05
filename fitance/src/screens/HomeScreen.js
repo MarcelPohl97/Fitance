@@ -8,6 +8,7 @@ import HighlightInfo from '../components/HiglightInfo';
 import ScreenTitle from '../components/ScreenTitle';
 import ScreenCaption from '../components/ScreenCaption';
 import Button from '../components/Button';
+import WavyText from '../components/WavyText';
 
 import {
     Link
@@ -32,7 +33,9 @@ const HomeScreen = () => {
                 <Navigation />
                 <div className="flex flex-col items-center">
                     <ScreenTitle title={'Fitance'} />
-                    <ScreenCaption caption1={'Calculate your'} highlight1={'Goals'} caption2={'and become'} highlight2={'Fit'} />
+                    <ScreenCaption>
+                        Calculate your <WavyText text={'Goals '} /> and become <WavyText text={'Fit '} />
+                    </ScreenCaption>
                     <div>
                         <Lottie 
                         options={MenOptions}

@@ -12,22 +12,26 @@ import {
 import Map from '../components/Map';
 import InputForm from '../components/InputForm';
 import Distance from '../components/Distance';
-import { useSelector, useDispatch } from 'react-redux'
-
+import { useSelector, useDispatch } from 'react-redux';
+import WavyText from '../components/WavyText';
 import {
-    selectInputUIValues,
-} from '../redux/features/inputUI/inputUISlice';
+    toggleInputUI, selectUIValues
+  } from '../redux/features/ui/uiSlice';
+
 
 const InputScreen = () => {
-    const inputUI = useSelector(selectInputUIValues);
-    console.log(inputUI);
+    const inputUI = useSelector(selectUIValues);
+    const dispatch = useDispatch();
+
     return (
         <>
             <LayoutContainer>
                 <Navigation />
                 <div className="flex flex-col items-center">
                     <ScreenTitle title={'Your Body Level'} />
-                    <ScreenCaption caption1={'Input your'} highlight1={'Data'} caption2={'and calculate your'} highlight2={'Goal'} />
+                    <ScreenCaption>
+                        Input your <WavyText text={'Data '} /> and calculate your <WavyText text={'Goal '} />
+                    </ScreenCaption>
                     <ActionContainer>
                         {inputUI ?  <Map /> : <InputForm />}
                     </ActionContainer>
@@ -41,7 +45,7 @@ const InputScreen = () => {
                         <Link to="/">
                                 <Button primary={true} title={'Back to Landing'} />
                         </Link>
-                        {inputUI ? <Button primary={true} title={'Back to Form'}/> : ''}
+                        {inputUI ? <Button primary={true} title={'Back to Form'} onClick={() => {dispatch(toggleInputUI())}}/> : ''}
                     </div>
                 </div>
             </LayoutContainer>
