@@ -8,7 +8,21 @@ import runningMarker from '../assets/images/runningMarker.svg';
 import MoveableMarker from './MoveableMarker';
 import DraggableMarker from './DraggableMarker';
 import Distance from './Distance';
+import { useSelector, useDispatch } from 'react-redux'
 
+import {
+    setYourCoords, selectYourCoords
+  } from '../redux/features/coordinates/yourSlice';
+
+import {
+  selectGoalCoords,
+  setGoalCoords
+} from '../redux/features/coordinates/goalSlice';
+
+import {
+  selectStartCoords,
+  setStartCoords
+} from '../redux/features/coordinates/startSlice';
 
 const startIcon = new Icon({
     iconUrl: startPositionMarker,
@@ -21,18 +35,10 @@ const goalIcon = new Icon({
 });
 
 const Map = () => {
-    const [startCoords, setStartCoords] = useState();
-    const [goalCoords, setGoalCoords] = useState();
-    const [yourCoords, setYourCoords] = useState();
-
-    useEffect(() => {
-      navigator.geolocation.getCurrentPosition(function(position) {
-        setYourCoords({
-          lat:position.coords.latitude,
-          lng:position.coords.longitude,
-        })
-      });
-    })
+    const dispatch = useDispatch();
+    const yourCoords = useSelector(selectYourCoords);
+    const startCoords = useSelector(selectStartCoords);
+    const goalCoords = useSelector(selectGoalCoords);
     return (
         <>
             <div className="w-full h-full relative">
@@ -41,9 +47,10 @@ const Map = () => {
                         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                     />
-                    <MoveableMarker startCoords={startCoords} goalCoords={goalCoords} />
                     <DraggableMarker icon={startIcon} setCoords={setStartCoords} yourCoords={yourCoords}/>
                     <DraggableMarker icon={goalIcon} setCoords={setGoalCoords} yourCoords={yourCoords}/>
+                    <MoveableMarker startCoords={startCoords} goalCoords={goalCoords} />
+                    
                     {startCoords && goalCoords &&
                       <Polyline key={1} positions={[[startCoords.lat, startCoords.lng], [goalCoords.lat, goalCoords.lng],]} color={'red'} /> 
                     }

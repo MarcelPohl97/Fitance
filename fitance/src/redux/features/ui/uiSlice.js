@@ -1,9 +1,10 @@
+
 import { createSlice } from '@reduxjs/toolkit'
 
 export const uiSlice = createSlice({
   name: 'ui',
   initialState: {
-    inputUI:true,
+    inputUI:false,
     },
   reducers: {
     toggleInputUI: (state) => {

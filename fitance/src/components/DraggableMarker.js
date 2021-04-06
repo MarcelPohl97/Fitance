@@ -1,7 +1,9 @@
 import React, {useState, useMemo, useRef} from 'react';
-import { Marker, Popup, } from 'react-leaflet'
+import { Marker, Popup, } from 'react-leaflet';
+import { useDispatch } from 'react-redux';
 
 const DraggableMarker = ({icon, setCoords, yourCoords}) => {
+    const dispatch = useDispatch();
     const [position, setPosition] = useState(yourCoords);
     const markerRef = useRef(null)
     const eventHandlers = useMemo(
@@ -9,12 +11,13 @@ const DraggableMarker = ({icon, setCoords, yourCoords}) => {
         dragend() {
           const marker = markerRef.current
           if (marker != null) {
+            const coords = {
+              lat:marker.getLatLng().lat,
+              lng:marker.getLatLng().lng,
+            }
             setPosition(marker.getLatLng())
-            setCoords(
-              {
-                lat:marker.getLatLng().lat,
-                lng:marker.getLatLng().lng,
-              }
+            dispatch(
+              setCoords(coords)
             )
           }
         },
