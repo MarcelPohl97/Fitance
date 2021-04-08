@@ -11,8 +11,6 @@ const RunningIcon = new Icon({
   
   const MoveableMarker = ({startCoords, goalCoords}) => {
     const [initMoving, setInitMoving] = useState(true);
-    const [latAcceleration, setLatAcceleration] = useState(0.001);
-    const [lngAcceleration, setLngAcceleration] = useState(0.001);
     const [moveCoords, setMoveCoords] = useState(startCoords);
     
       return (
@@ -27,7 +25,6 @@ const RunningIcon = new Icon({
             <Popup>Current Heartrate:</Popup>
           </ReactLeafletDriftMarker>
         }
-          
         </>
       )
 }

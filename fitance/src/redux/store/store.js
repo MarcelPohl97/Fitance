@@ -4,6 +4,7 @@ import uiReducer from '../features/ui/uiSlice';
 import yourCoordsReducer from '../features/coordinates/yourSlice';
 import goalCoordsReducer from '../features/coordinates/goalSlice';
 import startCoordsReducer from '../features/coordinates/startSlice';
+import initPersonReducer from '../features/person/initPersonSlice';
 
 export default configureStore({
   reducer: {
@@ -12,5 +13,6 @@ export default configureStore({
     yourCoords: yourCoordsReducer,
     goalCoords: goalCoordsReducer,
     startCoords: startCoordsReducer,
+    initPerson: initPersonReducer,
   }
 })
