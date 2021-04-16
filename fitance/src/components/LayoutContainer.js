@@ -8,7 +8,7 @@ const LayoutContainer = ({children}) => {
     const height = window.innerHeight;
     return (
         <>
-            <div className="w-100 h-screen bg-gradient-to-br from-green-400 to-green-600 relative overflow-hidden">
+            <div className="w-100 h-auto min-h-screen bg-gradient-to-br from-green-400 to-green-600 relative overflow-hidden">
                 <div className="absolute w-100 top-0">
                         <Particles
                         width={width}

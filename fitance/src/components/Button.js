@@ -1,13 +1,14 @@
 import React from 'react';
+import { motion, AnimateSharedLayout, AnimatePresence } from "framer-motion";
 
-const Button = ({primary, title, onClick, styles}) => {
+const Button = ({type, primary, title, onClick, styles}) => {
     return (
         <> 
         {primary 
         ?
-        <button className={`py-2 px-8 rounded-lg border-2 border-white shadow-xl text-2xl text-white mt-4 ${styles}`} style={{background:'#F06C88'}} onClick={onClick}>{title}</button>
+        <motion.button type={type} whileHover={{scale:1.1,}} whileTap={{scale:.95,}} className={`py-2 px-8 rounded-lg shadow-lg text-2xl bg-[#008FFF] focus:outline-none text-white mt-4 ${styles}`} onClick={onClick}>{title}</motion.button>
         :
-        <button className={`py-2 px-8 rounded-lg border-2 border-white shadow-xl text-2xl text-white mt-4 ml-4 ${styles}`} onClick={onClick}>{title}</button>
+        <motion.button whileHover={{scale:1.1,}} whileTap={{scale:.95,}} className={`py-2 px-8 rounded-lg text-[#333] bg-white shadow-lg focus:outline-none text-2xl mt-4 ml-4 ${styles}`} onClick={onClick}>{title}</motion.button>
         }
         </>
     )

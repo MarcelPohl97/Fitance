@@ -21,7 +21,7 @@ const Navigation = () => {
 
     return (
         <>
-            <div className="flex flex-row justify-between items-start pt-2">
+            <div className="flex flex-row justify-between items-start pt-4">
                 <Branding />
                 <NavigationItems children={navigation_Items} />
             </div>
