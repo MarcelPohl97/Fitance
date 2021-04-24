@@ -27,7 +27,7 @@ const Alert = () => {
             initial={{ opacity: 0, y: -500}}
             animate={{ opacity: 1, y: 0}}
             exit={{ opacity: 0, y: -500 }}
-            className="absolute left-1/3 top-1/5 z-50 -transform-x-1/2 -transform-y-1/2 bg-white rounded-lg shadow-xl p-4 flex flex-col items-center mt-6 w-full max-w-[500px] h-auto">
+            className="fixed left-1/3 top-1/5 z-50 -transform-x-1/2 -transform-y-1/2 bg-white rounded-lg shadow-xl p-4 flex flex-col items-center mt-6 w-full max-w-[500px] h-auto">
             <motion.h3 className={`mb-5 text-center text-4xl ${alertUI.color} ${alertUI.status} font-bold`}>
                 {alertUI.title }
             </motion.h3>

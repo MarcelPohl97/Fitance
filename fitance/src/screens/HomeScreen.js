@@ -3,7 +3,6 @@ import LayoutContainer from '../components/LayoutContainer';
 import Navigation from '../components/Navigation';
 import Lottie from 'react-lottie';
 import Men from '../assets/animations/menrunning.json';
-import HighlightInfo from '../components/HiglightInfo';
 import ScreenTitle from '../components/ScreenTitle';
 import ScreenCaption from '../components/ScreenCaption';
 import Button from '../components/Button';

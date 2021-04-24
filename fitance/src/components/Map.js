@@ -16,7 +16,6 @@ import {
 import Alert from './Alert';
 
 
-
 const startIcon = new Icon({
     iconUrl: startPositionMarker,
     iconSize: [40, 40]
@@ -47,16 +46,39 @@ const Map = () => {
       setStartLocation,
       goalLocation,
       setGoalLocation,} = useContext(StateContext);
-    const test = [5000, 10000, 20000, 30000, 40000, 50000];
+    const simulationData = async (objects, distance) => {
+      const data = await fetch("http://127.0.0.1:8000/start-simulation", {
+          method: "POST",
+          credentials: 'include',
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+              models : objects,
+              distance: distance.distance,
+              
+          })
+      });
+      const format_data = await data.json();
+  }
 
     const startSimulation = async () => {
         await setLoading(true);
+        const data = await fetch("http://127.0.0.1:8000/start-simulation", {
+          method: "POST",
+          credentials: 'include',
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+              models : simulationObjects,
+              distance: distance.distance,
+              
+          })
+      });
+        const format_data = await data.json();
         await setInitObjects(true);
-        const newCoords = simulationObjects.map(object => { 
+        const newCoords = format_data.simulated_objects.map(object => { 
           return {...object, lat: startCoords.lat, lng:startCoords.lng}
         });
         const newDuration = newCoords.map(object => { 
-          return {...object, duration: test[object.id]}
+          return {...object, duration: format_data.simulated_durations[object.id]}
         });
         await setSimulationObjects(newDuration);
         setTimeout(() => {
@@ -92,7 +114,7 @@ const Map = () => {
                     <Link to="/input"><motion.li><motion.button>Back to Form</motion.button></motion.li></Link>
                     <motion.li><motion.button onClick={() => {setLoading(!loading)}}>Subjects</motion.button></motion.li>
                     <motion.li><motion.button onClick={startSimulation}>Start Simulation</motion.button></motion.li>
-                    <motion.li><motion.span>Current Distance: {distance.distance} km</motion.span></motion.li>
+                    <motion.li><motion.span>Current Distance: {distance.distance.toFixed(1)} km</motion.span></motion.li>
                   </motion.ul>
                 </motion.div>
             </div>

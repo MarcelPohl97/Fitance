@@ -21,7 +21,7 @@ const InputForm = () => {
       setSimulationObjects(
         [...simulationObjects, 
         {
-          id:simulationObjects.length + 1,
+          id:(simulationObjects.length - 1) + 1,
           lat:0,
           lng:0,
           duration:5000,
@@ -29,7 +29,17 @@ const InputForm = () => {
           height:180,
           name:'Sanja',
           gender: 'male',
-          info: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut dolore veniam dignissimos atque quae ipsum consequuntur expedita enim similique quod totam beatae qui itaque excepturi inventore necessitatibus ipsa tempore officia laborum provident quos, vel nisi? Sapiente a eaque perferendis totam ab repudiandae! Voluptates ex sit facilis distinctio similique assumenda iste.'
+          info: 'Lorem ipsum dolor sit amet',
+          health_status:'Good',
+          max_heart_rate:220,
+          resting_heart_rate:60,
+          target_heart_rate:0,
+          walking_speed:15,
+          walking_time:0,
+          wish_walking_time:1,
+          needed_walking_speed:0,
+          injuries:true,
+          result:'He did good'
       },
     ])
     },
@@ -57,7 +67,5 @@ const InputForm = () => {
     </>
   );
 };
-
-
 
 export default InputForm;

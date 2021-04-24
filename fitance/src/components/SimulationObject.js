@@ -61,6 +61,33 @@ const SimulationObject = ({data, variant}) => {
                         animate={{ opacity: 1, width:'100%'}}
                         exit={{ opacity: 0, width:0 }}
                         className="absolute top-0 left-0 h-full bg-[#008FFF] border-l-2 p-4">
+                            <motion.ul>
+                                <motion.li>Health status will be adding later</motion.li>
+                                <motion.li>
+                                    Max Heart Rate
+                                </motion.li>
+                                <motion.li>
+                                    Heart Resting Rate 
+                                </motion.li>
+                                <motion.li>
+                                    Target Heart Rate - Need equation
+                                </motion.li>
+                                <motion.li>
+                                    Walking Speed 
+                                </motion.li>
+                                <motion.li>
+                                    Walking Time
+                                </motion.li>
+                                <motion.li>
+                                    My needed Walking Speed for Wish Walking Time
+                                </motion.li>
+                                <motion.li>
+                                    My Wish Walking Time
+                                </motion.li>
+                                <motion.li>
+                                    Injuries add later based on timing how long you walk
+                                </motion.li>
+                            </motion.ul>
                             <h3 className="font-bold text-3xl text-white wavy-text">Test</h3>
                             <button onClick={toggleInfo}>X</button>
                         </motion.div>

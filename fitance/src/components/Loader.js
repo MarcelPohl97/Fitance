@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import Lottie from 'react-lottie';
 import Loading from '../assets/animations/loading.json';
 import LayoutContainer from './LayoutContainer';
@@ -10,8 +10,15 @@ import WavyText from './WavyText';
 import {
     Link
   } from "react-router-dom";
+import { StateContext } from '../provider/StateProvider';
 
 const Loader = () => {
+
+    const {setLoading} = useContext(StateContext);
+
+    const cancelLoader = () => {
+        setLoading(false);
+    }
 
     const LoaderOptions = {
         loop: true,
@@ -35,7 +42,7 @@ const Loader = () => {
                                 height={350}
                             />
                             <Link to="/input">
-                                <Button primary={true} title={'Cancel'} styles={'float-right'} />
+                                <Button primary={true} title={'Cancel'} styles={'float-right'} onClick={cancelLoader} />
                             </Link>
                         </div>
                     </div>
